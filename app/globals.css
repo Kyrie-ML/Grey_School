@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fffefa; color: #15202b; font-family: var(--font-inter), sans-serif; }
+::selection { background: #ddebdd; color: #0a2540; }
+a { text-underline-offset: .22em; }
+img { background: #e9eef1; }
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12; }
+  .section-space { @apply py-20 md:py-28 lg:py-36; }
+  .eyebrow { @apply mb-5 inline-flex items-center gap-3 font-sans text-[.7rem] font-bold uppercase tracking-[.2em]; }
+  .eyebrow::before { content: ""; @apply block h-px w-7 bg-current opacity-70; }
+  .display { @apply font-sans text-[clamp(3.1rem,7vw,7.25rem)] font-semibold leading-[.91] tracking-[-.065em]; }
+  .page-title { @apply font-sans text-[clamp(3rem,5.7vw,5.75rem)] font-semibold leading-[.95] tracking-[-.055em]; }
+  .section-title { @apply font-sans text-[clamp(2.35rem,4.6vw,4.6rem)] font-semibold leading-[.98] tracking-[-.05em]; }
+  .focus-ring { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scholastic focus-visible:ring-offset-4; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
