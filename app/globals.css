@@ -41,6 +41,109 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .quiet-drift { animation: quiet-drift 18s ease-in-out infinite; }
 
+@keyframes hero-copy-in {
+  from { opacity: .18; transform: translate3d(0, 18px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes photo-float-1 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(3px, -5px, 0); }
+}
+
+@keyframes photo-float-2 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-4px, 6px, 0); }
+}
+
+@keyframes photo-float-3 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(2px, 7px, 0); }
+}
+
+@keyframes photo-float-4 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-3px, -4px, 0); }
+}
+
+.hero-dashboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 72% 42%, rgba(232, 239, 233, .1), transparent 36%), linear-gradient(110deg, rgba(255,255,255,.025), transparent 52%);
+  pointer-events: none;
+}
+
+.hero-copy {
+  animation: hero-copy-in .72s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.hero-copy-1 { animation-delay: .08s; }
+.hero-copy-2 { animation-delay: .14s; }
+.hero-copy-3 { animation-delay: .2s; }
+.hero-copy-4 { animation-delay: .28s; }
+.hero-copy-5 { animation-delay: .36s; }
+.hero-copy-6 { animation-delay: .42s; }
+.hero-copy-rail { animation-delay: .72s; }
+
+.hero-constellation {
+  position: relative;
+  min-height: 620px;
+  isolation: isolate;
+}
+
+.hero-photo {
+  position: absolute;
+  margin: 0;
+  filter: drop-shadow(0 18px 28px rgba(1, 12, 23, .2));
+  will-change: transform;
+}
+
+.hero-photo-float {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(251, 248, 242, .72);
+  background: #e8efe9;
+}
+
+.hero-float-1 { animation: photo-float-1 9s ease-in-out infinite; }
+.hero-float-2 { animation: photo-float-2 11s ease-in-out infinite; }
+.hero-float-3 { animation: photo-float-3 13s ease-in-out infinite; }
+.hero-float-4 { animation: photo-float-4 7s ease-in-out infinite; }
+
+.hero-photo-main { z-index: 30; left: 7%; top: 10%; width: 56%; height: 74%; }
+.hero-photo-main .hero-photo-float { border-radius: 2px; }
+.hero-photo-science { z-index: 42; right: 1%; top: 2%; width: 31%; height: 35%; }
+.hero-photo-science .hero-photo-float { border-radius: 13px; }
+.hero-photo-sport { z-index: 44; right: 0; bottom: 7%; width: 32%; height: 29%; }
+.hero-photo-sport .hero-photo-float { border-radius: 8px; }
+.hero-photo-reading { z-index: 46; left: 0; bottom: 0; width: 27%; height: 29%; }
+.hero-photo-reading .hero-photo-float { border-radius: 15px; }
+.hero-photo-art { z-index: 48; left: 49%; bottom: -2%; width: 25%; height: 27%; }
+.hero-photo-art .hero-photo-float { border-radius: 10px; }
+.hero-photo-friendship { z-index: 25; right: 4%; top: 40%; width: 31%; height: 24%; }
+.hero-photo-friendship .hero-photo-float { border-radius: 0; }
+
+@media (max-width: 1023px) {
+  .hero-dashboard .container-site { min-height: auto; }
+  .hero-constellation { min-height: 570px; margin-top: 12px; }
+  .hero-photo-main { left: 8%; top: 6%; width: 61%; height: 78%; }
+  .hero-photo-science { right: 3%; top: 1%; width: 31%; height: 34%; }
+  .hero-photo-sport { right: 1%; bottom: 5%; width: 35%; height: 30%; }
+  .hero-photo-art { left: 37%; bottom: 0; width: 27%; height: 27%; }
+  .hero-photo-reading, .hero-photo-friendship { display: none; }
+}
+
+@media (max-width: 639px) {
+  .hero-constellation { min-height: 430px; margin-left: -1.25rem; margin-right: -1.25rem; }
+  .hero-photo-main { left: 4%; top: 5%; width: 78%; height: 78%; }
+  .hero-photo-science { right: 2%; top: 1%; width: 36%; height: 34%; }
+  .hero-photo-sport { right: 2%; bottom: 2%; width: 38%; height: 31%; }
+  .hero-photo-art, .hero-photo-reading, .hero-photo-friendship { display: none; }
+  .hero-copy-rail { margin-top: 1.25rem; }
+}
+
 main > section.bg-midnight.py-24:first-child { padding-top: 11rem; }
 
 @media (min-width: 1024px) {
@@ -50,4 +153,5 @@ main > section.bg-midnight.py-24:first-child { padding-top: 11rem; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .hero-photo, .hero-photo-float { will-change: auto; transform: none !important; }
 }

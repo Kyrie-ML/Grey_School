@@ -15,6 +15,14 @@ export const images = {
   campus: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=2000&q=85",
   community: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1800&q=85",
   detail: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1400&q=85",
+  heroClassroom: "https://images.pexels.com/photos/5905920/pexels-photo-5905920.jpeg?auto=compress&cs=tinysrgb&w=1400",
+  heroTeacher: "https://images.pexels.com/photos/8423072/pexels-photo-8423072.jpeg?auto=compress&cs=tinysrgb&w=900",
+  heroScience: "https://images.unsplash.com/photo-1758685734062-165cc0094e61?auto=format&fit=crop&w=900&q=82",
+  heroScienceAlt: "https://images.unsplash.com/photo-1758685734153-132c8620c1bd?auto=format&fit=crop&w=900&q=82",
+  heroReading: "https://images.pexels.com/photos/8618016/pexels-photo-8618016.jpeg?auto=compress&cs=tinysrgb&w=900",
+  heroArt: "https://images.pexels.com/photos/8382373/pexels-photo-8382373.jpeg?auto=compress&cs=tinysrgb&w=900",
+  friendship: "https://images.pexels.com/photos/8923877/pexels-photo-8923877.jpeg?auto=compress&cs=tinysrgb&w=1000",
+  classroomWide: "https://images.pexels.com/photos/5905919/pexels-photo-5905919.jpeg?auto=compress&cs=tinysrgb&w=1600",
 };
 
 export const navigation: NavigationItem[] = [

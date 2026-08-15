@@ -12,7 +12,10 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: process.env.GREY_RUNTIME_ROOT ?? process.cwd(),
   images: {
     unoptimized: isGitHubPages,
-    remotePatterns: [{ protocol: "https", hostname: "images.unsplash.com" }],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "images.pexels.com" },
+    ],
   },
 };
 
