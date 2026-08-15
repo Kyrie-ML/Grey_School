@@ -13,15 +13,17 @@ export const images = {
   pencils: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1400&q=85",
   music: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=1600&q=85",
   campus: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=2000&q=85",
+  community: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1800&q=85",
+  detail: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1400&q=85",
 };
 
 export const navigation: NavigationItem[] = [
   { label: "About", href: "/about", children: [{ label: "Our purpose", href: "/about#purpose" }, { label: "Headteacher's welcome", href: "/about#welcome" }, { label: "Leadership & staff", href: "/about#people" }, { label: "Safeguarding", href: "/safeguarding" }] },
-  { label: "Academics", href: "/academics", children: [{ label: "Curriculum", href: "/academics#curriculum" }, { label: "Early Years", href: "/academics#stages" }, { label: "Lower Junior", href: "/academics#stages" }, { label: "Upper Junior", href: "/academics#stages" }, { label: "Learning support", href: "/academics#support" }, { label: "Enrichment", href: "/academics#enrichment" }] },
+  { label: "Learning", href: "/academics", children: [{ label: "Curriculum", href: "/academics#curriculum" }, { label: "Early Years", href: "/academics#stages" }, { label: "Lower Junior", href: "/academics#stages" }, { label: "Upper Junior", href: "/academics#stages" }, { label: "Learning support", href: "/academics#support" }, { label: "Enrichment", href: "/academics#enrichment" }] },
   { label: "Admissions", href: "/admissions" },
   { label: "Student Life", href: "/student-life" },
-  { label: "News & Events", href: "/news" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Community", href: "/about#community" },
+  { label: "News", href: "/news" },
   { label: "Contact", href: "/contact" },
 ];
 

@@ -5,20 +5,46 @@
 :root { color-scheme: light; }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: #fffefa; color: #15202b; font-family: var(--font-inter), sans-serif; }
-::selection { background: #ddebdd; color: #0a2540; }
+body { margin: 0; background: #fbf8f2; color: #16212d; font-family: var(--font-inter), sans-serif; }
+::selection { background: #e8efe9; color: #0b1f33; }
 a { text-underline-offset: .22em; }
-img { background: #e9eef1; }
+img { background: #e8efe9; }
+button, a { -webkit-tap-highlight-color: transparent; }
 
 @layer components {
-  .container-site { @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-12; }
-  .section-space { @apply py-20 md:py-28 lg:py-36; }
+  .container-site { @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-14; }
+  .section-space { @apply py-24 md:py-32 lg:py-40; }
   .eyebrow { @apply mb-5 inline-flex items-center gap-3 font-sans text-[.7rem] font-bold uppercase tracking-[.2em]; }
   .eyebrow::before { content: ""; @apply block h-px w-7 bg-current opacity-70; }
-  .display { @apply font-sans text-[clamp(3.1rem,7vw,7.25rem)] font-semibold leading-[.91] tracking-[-.065em]; }
-  .page-title { @apply font-sans text-[clamp(3rem,5.7vw,5.75rem)] font-semibold leading-[.95] tracking-[-.055em]; }
-  .section-title { @apply font-sans text-[clamp(2.35rem,4.6vw,4.6rem)] font-semibold leading-[.98] tracking-[-.05em]; }
+  .display { @apply font-sans text-[clamp(3rem,6.4vw,6.65rem)] font-semibold leading-[.91] tracking-[-.06em]; text-wrap: balance; }
+  .page-title { @apply font-sans text-[clamp(2.9rem,5.3vw,5.35rem)] font-semibold leading-[.96] tracking-[-.052em]; text-wrap: balance; }
+  .section-title { @apply font-sans text-[clamp(2.25rem,4.1vw,4.15rem)] font-semibold leading-[1] tracking-[-.048em]; text-wrap: balance; }
   .focus-ring { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-scholastic focus-visible:ring-offset-4; }
+  .hairline-rule { @apply h-px w-full bg-hairline; }
+  .image-wash { @apply after:absolute after:inset-0 after:bg-gradient-to-t after:from-midnight/40 after:via-transparent after:to-transparent; }
+}
+
+.editorial-grid {
+  background-image: linear-gradient(to right, rgba(82,113,94,.13) 1px, transparent 1px);
+  background-size: min(9vw, 112px) 100%;
+}
+
+.vertical-word {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+@keyframes quiet-drift {
+  0%, 100% { transform: scale(1.02) translate3d(0, 0, 0); }
+  50% { transform: scale(1.055) translate3d(-.5%, -.4%, 0); }
+}
+
+.quiet-drift { animation: quiet-drift 18s ease-in-out infinite; }
+
+main > section.bg-midnight.py-24:first-child { padding-top: 11rem; }
+
+@media (min-width: 1024px) {
+  main > section.bg-midnight.py-24:first-child { padding-top: 13rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

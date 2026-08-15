@@ -19,16 +19,20 @@ export function SiteHeader() {
   }, []);
   useEffect(() => { document.body.style.overflow = mobileOpen ? "hidden" : ""; return () => { document.body.style.overflow = ""; }; }, [mobileOpen]);
 
+  const light = !scrolled && !mobileOpen;
   return <>
-    <div className="relative z-[60] bg-sage px-4 py-2 text-center font-sans text-[.7rem] font-semibold tracking-wide text-midnight">
-      Admissions for 2026/27 are now open <Link className="ml-2 underline decoration-midnight/30" href="/admissions">Discover admissions</Link>
+    <div className="fixed inset-x-0 top-0 z-[70] h-8 bg-midnight px-5 text-white">
+      <div className="container-site flex h-full items-center justify-center font-sans text-[.62rem] font-semibold uppercase tracking-[.13em] sm:justify-between">
+        <span>Admissions for 2026/27 are open <Link className="ml-2 text-sage underline decoration-white/25" href="/admissions">Enquire</Link></span>
+        <nav aria-label="Utility navigation" className="hidden items-center gap-6 text-white/65 sm:flex"><Link className="hover:text-white" href="/parent-portal">Parent Portal</Link><Link className="hover:text-white" href="/news#events">Calendar</Link></nav>
+      </div>
     </div>
-    <header className={`sticky top-0 z-50 border-b transition-all duration-300 ${scrolled ? "border-hairline bg-cream/95 shadow-sm backdrop-blur-md" : "border-hairline/70 bg-cream/90 backdrop-blur-sm"}`}>
-      <div className={`container-site flex items-center justify-between transition-all duration-300 ${scrolled ? "h-[72px]" : "h-[86px]"}`}>
-        <Logo />
+    <header className={`fixed inset-x-0 top-8 z-[60] border-b transition-all duration-500 ${scrolled ? "border-hairline bg-cream/95 shadow-sm backdrop-blur-xl" : "border-white/20 bg-transparent"}`}>
+      <div className={`container-site flex items-center justify-between transition-all duration-500 ${scrolled ? "h-[70px]" : "h-[82px]"}`}>
+        <Logo light={light} />
         <nav aria-label="Main navigation" className="hidden items-center xl:flex">
           {navigation.map((item) => <div key={item.label} className="group/menu relative" onMouseEnter={() => item.children && setOpenMenu(item.label)} onMouseLeave={() => setOpenMenu(null)}>
-            <Link href={item.href} className="focus-ring flex h-12 items-center gap-1.5 px-3 font-sans text-xs font-semibold text-midnight transition hover:text-scholastic">
+            <Link href={item.href} className={`focus-ring flex h-12 items-center gap-1.5 px-3 font-sans text-[.7rem] font-semibold transition ${light ? "text-white hover:text-sage" : "text-midnight hover:text-scholastic"}`}>
               {item.label}{item.children && <ChevronDown className="h-3 w-3" aria-hidden="true" />}
             </Link>
             {item.children && openMenu === item.label && <div className="absolute right-0 top-full w-[720px] border-t-2 border-growth bg-cream p-8 shadow-soft">
@@ -40,8 +44,8 @@ export function SiteHeader() {
             </div>}
           </div>)}
         </nav>
-        <div className="hidden items-center gap-2 xl:flex"><Button href="/contact#visit" variant="text">Book a visit</Button><Button href="/admissions#apply">Apply now</Button></div>
-        <button onClick={() => setMobileOpen(true)} aria-label="Open navigation" aria-expanded={mobileOpen} className="focus-ring grid h-12 w-12 place-items-center xl:hidden"><Menu /></button>
+        <div className="hidden items-center gap-4 xl:flex"><Link href="/contact#visit" className={`focus-ring text-[.7rem] font-bold uppercase tracking-[.12em] ${light ? "text-white" : "text-midnight"}`}>Book a visit</Link><Button href="/admissions#apply" variant={light ? "light" : "primary"}>Apply now</Button></div>
+        <button onClick={() => setMobileOpen(true)} aria-label="Open navigation" aria-expanded={mobileOpen} className={`focus-ring grid h-12 w-12 place-items-center xl:hidden ${light ? "text-white" : "text-midnight"}`}><Menu /></button>
       </div>
     </header>
     <div className={`fixed inset-0 z-[100] bg-midnight text-white transition duration-500 xl:hidden ${mobileOpen ? "visible translate-x-0" : "invisible translate-x-full"}`} aria-hidden={!mobileOpen}>
@@ -51,7 +55,7 @@ export function SiteHeader() {
           {navigation.map((item, index) => <Link onClick={() => setMobileOpen(false)} key={item.href} href={item.href} className="focus-ring flex items-center justify-between border-b border-white/15 py-4 font-sans text-[clamp(1.6rem,7vw,2.5rem)] font-medium tracking-tight"><span>{item.label}</span><span className="text-xs text-white/40">0{index + 1}</span></Link>)}
         </nav>
         <div className="grid gap-3 sm:grid-cols-2"><Button href="/contact#visit" variant="light">Book a visit</Button><Button href="/admissions#apply" variant="outline">Apply now</Button></div>
-        <div className="mt-6 flex justify-between text-xs text-white/60"><Link href="/parent-portal">Parent portal</Link><Link href="/contact">Contact us</Link></div>
+        <div className="mt-6 flex justify-between text-xs text-white/60"><Link href="/parent-portal">Parent portal</Link><Link href="/news#events">Calendar</Link><Link href="/gallery">Gallery</Link></div>
       </div>
     </div>
   </>;
